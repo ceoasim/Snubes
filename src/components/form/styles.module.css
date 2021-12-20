@@ -1,0 +1,85 @@
+.form_container{
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: center ;
+  width: 85%;
+  /* margin-top: 45px; */
+  margin-left: 45px;
+  position:absolute;
+  top: 115px;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 614px;
+  height: 420px;
+  background-color: white;
+  border-radius: 2px;
+  justify-content: center;
+}
+
+.stats_container{
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  justify-content: flex-end;
+  /* height: 10%  ; */
+}
+
+.input_box_container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 85%;
+  margin-top:20px;
+  align-items: center;
+}
+
+.input_box{
+  width: 320px;
+  height: 35px;
+  border-radius: 3px;
+  border:1px solid #b4c3d2;
+}
+.input_box:focus{
+  outline: none !important;
+  border:1px solid #0099ef;
+  width: 320px;
+  height: 35px;
+  border-radius: 3px;
+}
+
+.submit{
+  background-color: #0099ef;
+  width: 250px;
+  height: 48px;
+  margin-top: 20px;
+  margin-left: 30px;
+  border-radius: 3px;
+}
+
+.label_container{
+  text-align:end;
+  width:90px;
+}
+
+.label{
+  color: #445566;
+  font-size: 15px;
+}
+
+.stats_text_1{
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.stats_text_2{
+  color: #fff;
+  font-size: 15px;
+  font-weight: normal;
+}

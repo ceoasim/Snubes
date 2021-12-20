@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import styles from './styles.module.css';
 import countryCodes from './CountryCodes.json'
+import { useDispatch } from 'react-redux';
+import * as Actions from '../../redux/user/actions'
 
 const FormComponent = (props: any) => {
   const [countryCode, setCountryCode] = useState('')
+  const [redBox, setRedBox] = useState(false)
+  const dispatch = useDispatch()
   useEffect(() => {
     async function getCountryCode() {
       const data = await fetch('http://ip-api.com/json')
@@ -41,7 +45,7 @@ const FormComponent = (props: any) => {
                     props.setCompanyName('')
                   }
                 }
-              }} value={props.companyName} className={styles.input_box} type="text" name="companyName"></input>
+              }} value={props.companyName} className={!props.companyName && redBox ? styles.input_box_red : styles.input_box} type="text" name="companyName"></input>
             </div>
             <div className={styles.input_box_container}>
               <div className={styles.label_container}>
@@ -49,7 +53,7 @@ const FormComponent = (props: any) => {
               </div>
               <input maxLength={40} onChange={(e) => {
                 props.setName(e.target.value)
-              }} value={props.name} className={styles.input_box} type="text" name="name"></input>
+              }} value={props.name} className={!props.name && redBox ? styles.input_box_red : styles.input_box} type="text" name="name"></input>
             </div>
             <div>
             </div>
@@ -67,20 +71,29 @@ const FormComponent = (props: any) => {
                   }
                   props.setPhone(e.target.value)
                 }
-              }} value={props.phone} className={styles.input_box} name="phone" placeholder={countryCode}></input>
+              }} value={props.phone} className={!props.phone && redBox ? styles.input_box_red : styles.input_box} name="phone" placeholder={countryCode}></input>
             </div>
             <div className={styles.input_box_container}>
               <div className={styles.label_container}>
                 <label className={styles.label}>Email</label>
               </div>
               <input onChange={(e) => {
-                // if(emailFormat.test(e.target.value)){
                 props.setEmail(e.target.value)
-                // }
-              }} value={props.email} className={styles.input_box} type="text" name="firstname"></input>
+              }} value={props.email} className={!props.email && redBox ? styles.input_box_red : styles.input_box} type="text" name="firstname"></input>
             </div>
           </div>
-          <div className={styles.submit}>
+          <div onClick={()=>{
+            if(props.companyName && props.name && props.email && props.phone && !emailFormat.test(props.email)){
+              alert('Email input is not valid')
+            }
+            if(props.companyName && props.name && props.email && props.phone && emailFormat.test(props.email)){
+              dispatch(Actions.addInfo(props.companyName, props.name, props.phone, props.email))
+              props.setIsAddInfoFrom(false)
+            }
+            else{
+              setRedBox(true)
+            }
+          }} className={styles.submit}>
             <p style={{ color: '#fff', textAlign: 'center' }}>Get Informed</p>
           </div>
         </div>

@@ -27,54 +27,19 @@
   flex-direction: column;
   margin-left: 50px;
   justify-content: flex-end;
-  /* height: 10%  ; */
 }
 
 .input_box_container{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 85%;
-  margin-top:20px;
+  height: 40px;
   align-items: center;
 }
 
-.input_box{
-  width: 320px;
-  height: 35px;
-  border-radius: 3px;
-  border:1px solid #b4c3d2;
-  
-}
-.input_box:focus{
-  outline: none !important;
-  border:1px solid #0099ef;
-  width: 320px;
-  height: 35px;
-  border-radius: 3px;
-}
-.input_box_red{
-  outline: none !important;
-  border:1px solid red;
-  width: 320px;
-  height: 35px;
-  border-radius: 3px;
-}
-
-.submit{
-  background-color: #0099ef;
-  width: 250px;
-  height: 48px;
-  margin-top: 30px;
-  margin-left: 30px;
-  border-radius: 3px;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
-
 .label_container{
-  text-align:end;
-  width:90px;
+  text-align:start;
+  margin-left: 70px;
+  width: 80px;
 }
 
 .label{

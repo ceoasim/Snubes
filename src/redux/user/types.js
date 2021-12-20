@@ -1,1 +1,2 @@
-export const SAMPLE_TYPE = 'SAMPLE_TYPE';
+export const ADD_INFO = 'ADD_INFO';
+export const ADD_INFO_SUCCESS = 'ADD_INFO_SUCCESS';

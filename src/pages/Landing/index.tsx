@@ -24,6 +24,7 @@ import ArrowRight from '../../assets/images/arrow_right.svg'
 import ArrowLeft from '../../assets/images/arrow_left.svg'
 import WhiteDot from '../../assets/images/white_dot.svg'
 import GreyDot from '../../assets/images/grey_dot.svg'
+import ResponseComponent from '../../components/response';
 
 const dummyData = [
   {
@@ -52,12 +53,20 @@ const Landing = (props: any) => {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
+  const [isAddInfoFrom, setIsAddInfoFrom] = useState(true)
 
   return (
     <div>
       <CustomNavbar />
       <img className={styles.background_container} src={Background} />
-      <FormComponent {...props} companyName={companyName} setCompanyName={setCompanyName} name={name} setName={setName} phone={phone} setPhone={setPhone} email={email} setEmail={setEmail}/>
+      {
+        isAddInfoFrom ?
+          <FormComponent {...props} companyName={companyName} setCompanyName={setCompanyName} name={name} setName={setName} phone={phone} setPhone={setPhone} email={email} setEmail={setEmail} setIsAddInfoFrom={setIsAddInfoFrom} />
+
+          :
+          <ResponseComponent />
+
+      }
       <div style={{ background: '#f9f9f9', height: 10 }} />
       <div className={styles.info_1}>
         <div className={styles.info_1_container}>
@@ -143,7 +152,7 @@ const Landing = (props: any) => {
           <div>
             <p className={styles.stats_text_1}>support@snubes.com</p>
             <p className={styles.stats_text_1}>+49 (0) 305 5645327</p>
-            <div style={{width: 80, alignSelf:'center', display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center', height:35}}>
+            <div style={{ width: 80, alignSelf: 'center', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', height: 35 }}>
               <p className={styles.stats_text_1}>f</p>
               <img style={{ width: 15, height: 15 }} src={Twitter} />
               <p className={styles.stats_text_1}>in</p>
@@ -151,9 +160,9 @@ const Landing = (props: any) => {
           </div>
         </div>
       </div>
-        <div style={{display:'flex', flexDirection:'row', justifyContent:'center', alignItems:'center', height:40, marginTop:20 }}>
-          <span style={{fontSize:12, color:'#4a4a4a'}}>© 2019 Snubes GmbH All Rights Reserved.</span>
-        </div>
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 40, marginTop: 20 }}>
+        <span style={{ fontSize: 12, color: '#4a4a4a' }}>© 2019 Snubes GmbH All Rights Reserved.</span>
+      </div>
 
     </div>
   );

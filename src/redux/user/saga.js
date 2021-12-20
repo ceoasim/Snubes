@@ -1,10 +1,11 @@
 import { call, put, select, takeEvery, takeLatest } from 'redux-saga/effects';
-import { SAMPLE_TYPE } from "./types";
+import { ADD_INFO, SAMPLE_TYPE } from "./types";
+import * as Actions from './actions'
 
-function* sampleType() {
+function* addInfo(action) {
 
   try {
-    console.log("Sample saga")
+    yield put(Actions.addInfoSuccess(action.payload))
   }
 
   catch (err) {
@@ -13,7 +14,7 @@ function* sampleType() {
 }
 
 function* mySaga() {
-  yield takeLatest(SAMPLE_TYPE, sampleType);
+  yield takeLatest(ADD_INFO, addInfo);
 
 }
 export default mySaga;

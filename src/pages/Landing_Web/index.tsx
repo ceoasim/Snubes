@@ -86,7 +86,7 @@ const Landing = (props: any) => {
       <img className={styles.background_container} src={Background2} />
       <div style={{ background: '#f9f9f9', height: 10 }} />
 
-      {/* Custome Carousal */}
+      {/* Custom Carousal */}
       <div className={styles.info_1}>
         <div style={{ cursor: 'pointer' }} onClick={() => {
           if (currentSliderValue.id == 0) {
